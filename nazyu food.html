@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Makanan Online</title>
+    <link rel="stylesheet" href="prak.css">
+</head>
+<body>
+    <header>
+        <h1>NAZYU FOOD</h1>
+        <p>Pesan makanan favorit Anda dan nikmati di rumah!</p>
+        <p>hubungi</p>
+        <p><strong>No:</strong> +62 856-0819-0571 (nazwa) +62 812-4974-3210 (ayu)</p>
+    </header>
+    <main>
+        <section id="menu">
+            <h2>Menu Makanan</h2>
+            <div class="menu-slider-container">
+                <button class="prev" onclick="geserMenu(-1)">&#10094;</button>
+                <div class="menu-slider">
+                    <div class="menu-item">
+                        <img src="https://assets-pergikuliner.com/cYPlO3yojjVlQMH_nzZ4Rsa_YLk=/332x0/smart/https://assets-pergikuliner.com/uploads/image/picture/3157261/picture-1705155852.jpg" alt="Nasi Goreng">
+                        <h3>es roti</h3>
+                        <p>Rp20.000</p>
+                        <button onclick="tambahKeKeranjang('es roti', 20000)">Tambah ke Keranjang</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://asset.kompas.com/crops/c1WbILtt6rtGwy0TIJkcUaqysS4=/98x0:944x564/1200x800/data/photo/2023/04/14/6438d1d8bc59b.jpeg" alt="Mie Ayam">
+                        <h3>Mie Ayam</h3>
+                        <p>Rp15.000</p>
+                        <button onclick="tambahKeKeranjang('Mie Ayam', 15000)">Tambah ke Keranjang</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://www.kelasgarasi.com/wp-content/uploads/2024/10/ayam-bakar-indonesia.jpg" alt="Ayam Bakar">
+                        <h3>Ayam Bakar</h3>
+                        <p>Rp55.000</p>
+                        <button onclick="tambahKeKeranjang('Ayam Bakar', 55000)">Tambah ke Keranjang</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://cdn0-production-images-kly.akamaized.net/nc1ruEcnqXRIINpayeGX7PQFdys=/0x0:750x1000/680x906/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4526801/original/078078000_1691212000-shutterstock_2320024619.jpg" alt="mie jebew">
+                        <h3>Mie Jebew</h3>
+                        <p>Rp17.000</p>
+                        <button onclick="tambahKeKeranjang('mie jebew', 17000)">Tambah ke Keranjang</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://cdns.klimg.com/mav-prod-resized/480x/webp/feedImage/2024/5/8/1715148340354-ozx61.jpeg" alt="Pangsit Chilli Oil">
+                        <h3>Pangsit Chilli Oil</h3>
+                        <p>Rp20.000</p>
+                        <button onclick="tambahKeKeranjang('pangsit Chilli Oil', 20000)">Tambah ke Keranjang</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://cdn1-production-images-kly.akamaized.net/I9pBFHCAjd6mj7SWClFW4TVUWaI=/680x906/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4777522/original/071308500_1710839241-iced-orange-cocktail-table__2_.jpg" alt="Es jeruk">
+                        <h3>Es Jeruk</h3>
+                        <p>Rp7.000</p>
+                        <button onclick="tambahKeKeranjang('es jeruk', 7000)">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+                
+                <button class="next" onclick="geserMenu(1)">&#10095;</button>
+            </div>
+        </section>
+        
+        <section id="keranjang">
+            <h2>Keranjang Belanja</h2>
+            <div id="keranjang-list"></div>
+            <p><strong>Total Harga:</strong> Rp<span id="total-harga">0</span></p>
+
+            <h3>Opsi Pengiriman</h3>
+            <select id="pengiriman">
+                <option value="Ongkir Normal">Ongkir Normal - Rp5.000</option>
+                <option value="Ongkir Cepat">Ongkir Cepat - Rp10.000</option>
+                <option value="Ambil di Tempat">Ambil di Tempat - Gratis</option>
+            </select>
+
+            <button id="checkout-button" onclick="checkout()">Checkout</button>
+        </section>
+    </main>
+
+    <script src="prak.js"></script>
+</body>
+</html>

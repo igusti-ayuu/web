@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Makanan Online</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: #ffffff;
+            color: #201e1e;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #7b605c;
+            color: white;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        main {
+            width: 80%;
+            max-width: 1000px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #menu, #keranjang {
+            width: 45%;
+        }
+
+        .menu-slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .menu-slider {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item {
+            background-color:#7b605c;
+            border: 1px solid #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            min-width: 200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .menu-item h3 {
+            margin: 10px 0;
+        }
+
+        .menu-item p {
+            font-weight: bold;
+            color: #f3f2f2;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #ae8179;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 10;
+        }
+
+        button:hover {
+            background-color: #e5533d;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        #keranjang {
+            background-color: #baacac;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #keranjang h2 {
+            margin-bottom: 15px;
+        }
+
+        #keranjang-list p {
+            margin: 5px 0;
+        }
+
+        #checkout-button {
+            margin-top: 15px;
+            background-color: #bec77e;
+        }
+
+        #checkout-button:hover {
+            background-color: #f4f9f5;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #a97c7c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NAZYU FOOD</h1>
+        <p>Pesan makanan favorit Anda dan nikmati di rumah!</p>
+        <p>hubungi</p>
+        <p><strong>No:</strong> +62 856-0819-0571 (nazwa) +62 812-4974-3210 (ayu)</p>
+    </header>
+    <main>
+        <section id="menu">
+            <h2>Menu Makanan</h2>
+            <div class="menu-slider-container">
+                <button class="prev" onclick="geserMenu(-1)">&#10094;</button>
+                <div class="menu-slider">
+                    <div class="menu-item">
+                        <img src="https://assets-pergikuliner.com/cYPlO3yojjVlQMH_nzZ4Rsa_YLk=/332x0/smart/https://assets-pergikuliner.com/uploads/image/picture/3157261/picture-1705155852.jpg" alt="Nasi Goreng">
+                        <h3>es roti</h3>
+                        <p>Rp20.000</p>
+                        <button onclick="tambahKeKeranjang('es roti', 20000)">Tambah ke Keranjang</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://asset.kompas.com/crops/c1WbILtt6rtGwy0TIJkcUaqysS4=/98x0:944x564/1200x800/data/photo/2023/04/14/6438d1d8bc59b.jpeg" alt="Mie Ayam">
+                        <h3>Mie Ayam</h3>
+                        <p>Rp15.000</p>
+                        <button onclick="tambahKeKeranjang('Mie Ayam', 15000)">Tambah ke Keranjang</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://img.kurio.network/4dOp5iIUe538oxcp-n_QCL-ar7Y=/440x440/filters:quality(80)/https://kurio-img.kurioapps.com/22/02/06/10d46313-c9bd-46f8-86a6-a098570a36a0.jpe" alt="Ayam Bakar">
+                        <h3>Ayam Bakar</h3>
+                        <p>Rp55.000</p>
+                        <button onclick="tambahKeKeranjang('Ayam Bakar', 55000)">Tambah ke Keranjang</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://cdn0-production-images-kly.akamaized.net/nc1ruEcnqXRIINpayeGX7PQFdys=/0x0:750x1000/680x906/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4526801/original/078078000_1691212000-shutterstock_2320024619.jpg" alt="mie jebew">
+                        <h3>Mie Jebew</h3>
+                        <p>Rp17.000</p>
+                        <button onclick="tambahKeKeranjang('mie jebew', 17000)">Tambah ke Keranjang</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://cdns.klimg.com/mav-prod-resized/480x/webp/feedImage/2024/5/8/1715148340354-ozx61.jpeg" alt="Pangsit Chilli Oil">
+                        <h3>Pangsit Chilli Oil</h3>
+                        <p>Rp20.000</p>
+                        <button onclick="tambahKeKeranjang('pangsit Chilli Oil', 20000)">Tambah ke Keranjang</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://cdn1-production-images-kly.akamaized.net/I9pBFHCAjd6mj7SWClFW4TVUWaI=/680x906/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4777522/original/071308500_1710839241-iced-orange-cocktail-table__2_.jpg" alt="Es jeruk">
+                        <h3>Es Jeruk</h3>
+                        <p>Rp7.000</p>
+                        <button onclick="tambahKeKeranjang('es jeruk', 7000)">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+                <button class="next" onclick="geserMenu(1)">&#10095;</button>
+            </div>
+        </section>
+        
+        <section id="keranjang">
+            <h2>Keranjang Belanja</h2>
+            <div id="keranjang-list"></div>
+            <p><strong>Total Harga:</strong> Rp<span id="total-harga">0</span></p>
+
+            <h3>Opsi Pengiriman</h3>
+            <select id="pengiriman">
+                <option value="Ongkir Normal">Ongkir Normal - Rp5.000</option>
+                <option value="Ongkir Cepat">Ongkir Cepat - Rp10.000</option>
+                <option value="Ambil di Tempat">Ambil di Tempat - Gratis</option>
+            </select>
+
+            <button id="checkout-button" onclick="checkout()">Checkout</button>
+        </section>
+    </main>
+
+    <script>
+        let totalHarga = 0;
+        let keranjang = [];
+        let posisiSlider = 0;
+        const maxItems = 5;
+
+        function tambahKeKeranjang(namaMakanan, harga) {
+            keranjang.push({ nama: namaMakanan, harga: harga });
+            totalHarga += harga;
+            updateKeranjang();
+        }
+
+        function updateKeranjang() {
+            const keranjangList = document.getElementById("keranjang-list");
+            keranjangList.innerHTML = "";
+
+            keranjang.forEach((item) => {
+                const itemElement = document.createElement("p");
+                itemElement.textContent = ${item.nama}-Rp${item.harga};
+                keranjangList.appendChild(itemElement);
+            });
+
+            document.getElementById("total-harga").textContent = totalHarga;
+        }
+
+        function checkout() {
+            const pengiriman = document.getElementById("pengiriman").value;
+            let ongkir = 0;
+
+            if (pengiriman === "Ongkir Normal") ongkir = 5000;
+            else if (pengiriman === "Ongkir Cepat") ongkir = 10000;
+
+            const totalBayar = totalHarga + ongkir;
+
+            if (keranjang.length === 0) {
+                alert("Keranjang Anda masih kosong! Segera isi keranjang Anda sebelum kesempatan hilang, seperti hati yang pernah menunggu tanpa kepastian");
+            } else {
+                alert(Total belanja Anda: Rp${totalBayar} (${pengiriman}). Setiap langkah Anda menjauh, rasanya seperti ada bagian dari hati kami yang ikut pergi. Terima kasih atas kunjungannya. Semoga kita bisa bertemu lagi, menyatukan hati yang sempat terpisah.);
+                keranjang = [];
+                totalHarga = 0;
+                updateKeranjang();
+            }
+        }
+        function geserMenu(arah) {
+            const slider = document.querySelector(".menu-slider");
+            const itemWidth = document.querySelector(".menu-item").offsetWidth + 10;
+            posisiSlider += arah * itemWidth;
+            slider.style.transform = translateX(-${posisiSlider}px);
+        }
+    </script>
+</body>
+</html> 
